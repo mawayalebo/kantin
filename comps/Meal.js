@@ -21,9 +21,6 @@ const Meal = ({meal}) => {
                         </div>
                         
                     </div>
-                    <div className="flex items-center p-2 bg-black mt-2">
-                        <span className="text-white">Mulink</span>
-                    </div>
                 </div>
                 
             </div>
