@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const intialState = {
+const initialState = {
     items:[]
 }
 
@@ -13,8 +13,8 @@ const basketSlice = createSlice(
                 state.items = [...state.items, action.item];
             },
             removefromBasket: (state, action) => {
-
-            }
+                console.log(state)
+            },
         }
     }
 )

@@ -11,8 +11,19 @@ export default function Home() {
       </Head>
 
       <main className="">
-        <Meals/>
+        <Meals />
       </main>
     </div>
   )
 }
+/*
+export async function getStaticProps(){
+  const meals = await fetch('https://www.themealdb.com/api/json/v1/1/latest.php')
+  const data = await meals.json()
+  return {
+    props: {
+      meals: data.meals
+    }
+  }
+}
+*/

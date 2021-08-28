@@ -1,8 +1,15 @@
 import Image from "next/image"
-import Burger from "../public/OIP.jpg"
+import { useRouter } from 'next/router';
+
+
 const Meal = ({meal}) => {
+    const router = useRouter();
+
+    const clickMeal = () => {
+        router.push(`/meal/${meal.id}`);
+    }
     return ( 
-        <div className="p-3">
+        <div onClick = { clickMeal } className="p-3">
             <div className="flex">
                 <div className="relative flex">
                     <Image src={meal.image} width="150" height="150" className="rounded"/>
