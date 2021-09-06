@@ -6,14 +6,14 @@ const Meal = ({meal}) => {
 
     return ( 
         <div className="p-10 grid grid-cols-1 md:grid-cols-6">
-            <div className="flex-0.5 relative">
-                <Image src={meal.image } layout={"fill"} />
+            <div className="flex-0.5  w-full h-[50vh] relative overflow-hidden">
+                <Image className="rounded-[20px]" src={meal.image} layout={"fill"} />
             </div>
             <div>
-                <div className="flex 2xl">
+                <div className="flex text-4xl font-bold">
                     <span>{meal.name}</span>
                 </div>
-                <div className="flex">
+                <div className="text-[60px] font-bold text-[orangered] ">
                     <span>{meal.price}</span>
                 </div>
                 <div>
@@ -22,7 +22,7 @@ const Meal = ({meal}) => {
                         <span>{meal.category}</span>
                     </div>
                     <div>
-                        <span>{meal.cookTime}Min</span>
+                        <span>{meal.cookTime}Min</span> 
                     </div>
                     <div>
                         {
