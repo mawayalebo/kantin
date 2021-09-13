@@ -1,13 +1,19 @@
 
 import { MenuIcon, ShoppingBagIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 const Header = () => {
+    const router = useRouter();
+    const goToHome = () => {
+        router.push('/');
+    };
+
     return ( 
-        <div className="flex py-5 items-center">
+        <div className="flex py-5 items-center bg-[white] fixed top-0 w-screen z-30 shadow-sm">
             {/*left side*/}
             <div className="flex flex-[0.2] items-center justify-start space-x-3 p-3 pr-6 rounded-r-full bg-[purple]">
                 <MenuIcon className="text-white w-5 h-5"/>
-                <span className="text-white text-3xl mr-15">Kantin</span>  
+                <span onClick={goToHome} className="text-white text-3xl mr-15">Kantin</span>  
             </div>
 
             {/*right side*/}

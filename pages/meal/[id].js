@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { data } from "../../mockdata/meals";
+import { ShoppingBagIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 const Meal = ({meal}) => {
 
@@ -13,28 +14,34 @@ const Meal = ({meal}) => {
                 <div className="flex text-4xl font-bold">
                     <span>{meal.name}</span>
                 </div>
-                <div className="text-[60px] font-bold text-[orangered] ">
-                    <span>{meal.price}</span>
-                </div>
-                <div>
-                    <span>R{meal.price}</span>
-                    <div>
-                        <span>{meal.category}</span>
+                
+                <div className="flex items-center">
+                    <div className="text-[70px] font-bold text-[orangered] ">
+                        <span>R{meal.price}</span>
                     </div>
-                    <div>
-                        <span>{meal.cookTime}Min</span> 
-                    </div>
-                    <div>
-                        {
-                            meal.includes && 
-                            meal.includes.map((item, index) => {
-                                return <span key={index}>{item}</span>
-                            }
-                            )
-                        }
+                    <div className="flex flex-col justify-center items-center p-5">
+                        <div className="flex items-center justify-center bg-[purple] rounded-full text-white px-2">
+                            <span>{meal.category}</span>
+                        </div>
+                        <div>
+                            <span className="font-bold">{meal.cookTime} Min</span> 
+                        </div>
                     </div>
                 </div>
                 <div></div>
+            </div>
+            <div className="space-x-3 flex">
+                {
+                    meal.includes && 
+                    meal.includes.map((item, index) => {
+                    return <span key={index} className="bg-gray-100 text-purple-800 rounded-full px-2 ">{item}</span>
+                        }
+                    )
+                }
+            </div>
+            <div className="bg-[green] p-5 text-white flex justify-between mt-2 active:scale-90 ease-out transition">
+                <span>Add to cart</span>
+                <ShoppingBagIcon className="text-white h-5 w-5" />
             </div>
         </div>
      );
