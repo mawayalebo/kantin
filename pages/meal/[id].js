@@ -2,7 +2,18 @@ import { useRouter } from "next/router";
 import { data } from "../../mockdata/meals";
 import { ShoppingBagIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
+import { addToBasket } from "../../features/app/slices/basketSlice";
+import { useDispatch } from "react-redux";
+
 const Meal = ({meal}) => {
+
+    const dispatch = useDispatch();
+    const router = useRouter();
+    const addItemToCart = () => {
+        dispatch(addToBasket(meal));
+        alert("Meal added to cart '-'");
+        router.push("/");
+    }
 
 
     return ( 
@@ -34,12 +45,12 @@ const Meal = ({meal}) => {
                 {
                     meal.includes && 
                     meal.includes.map((item, index) => {
-                    return <span key={index} className="bg-gray-100 text-purple-800 rounded-full px-2 ">{item}</span>
+                    return <span key={index} className="bg-gray-100 text-purple-800 rounded-full px-2 " >{item}</span>
                         }
                     )
                 }
             </div>
-            <div className="bg-[green] p-5 text-white flex justify-between mt-2 active:scale-90 ease-out transition">
+            <div onClick={ addItemToCart } className="bg-[green] p-5 text-white flex justify-between mt-2 active:scale-90 ease-out transition" >
                 <span>Add to cart</span>
                 <ShoppingBagIcon className="text-white h-5 w-5" />
             </div>

@@ -2,11 +2,21 @@
 import { MenuIcon, ShoppingBagIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { selectBasketItems } from '../features/app/slices/basketSlice';
+
 const Header = () => {
     const router = useRouter();
+
     const goToHome = () => {
         router.push('/');
     };
+
+    const goToCart = () => {
+        router.push('/cart');
+    };
+
+    const basketItems = useSelector(selectBasketItems);
 
     return ( 
         <div className="flex py-5 items-center bg-[white] fixed top-0 w-screen z-30 shadow-sm">
@@ -18,10 +28,13 @@ const Header = () => {
 
             {/*right side*/}
             <div className="flex flex-[0.8] items-center justify-end p-3">
-                <div className="relative flex justify-center rounded-full p-3 bg-[purple]">
+                <div onClick={goToCart} className="relative flex justify-center rounded-full p-3 bg-[purple]">
                     <ShoppingBagIcon className="text-white w-5 h-5"/>
                     <div className="absolute flex justify-center right-1 top-0">
-                        <span className="text-white px-1 text-">0</span>
+                        {
+                            basketItems && <span className="text-white px-1 text-">{basketItems.length}</span>
+                        }
+                        
                     </div>
                 </div>
             </div>
