@@ -10,10 +10,12 @@ const basketSlice = createSlice(
         initialState,
         reducers: {
             addToBasket: (state, action) => {
-                state.items = [...state.items, action.item];
+                state.items = [...state.items, action.payload];
             },
             removefromBasket: (state, action) => {
-                console.log(state)
+                
+                
+    
             },
         }
     }
