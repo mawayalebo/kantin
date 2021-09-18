@@ -13,7 +13,9 @@ const basketSlice = createSlice(
                 state.items = [...state.items, action.payload];
             },
             removefromBasket: (state, action) => {
-                
+
+                const newItems = state.items.filter(item => item.id !== action.payload);
+                state.items = newItems;
                 
     
             },
