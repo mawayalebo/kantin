@@ -3,7 +3,10 @@ import Layout from '../comps/Layout';
 import { Provider } from 'react-redux';
 import { store } from '../features/app/store';
 
+
 function MyApp({ Component, pageProps }) {
+  
+
   return(
     <Provider store={store}>
       <Layout>
@@ -14,4 +17,15 @@ function MyApp({ Component, pageProps }) {
   ) 
 }
 
+
+
 export default MyApp
+
+
+
+
+
+
+
+
+  

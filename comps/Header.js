@@ -1,9 +1,11 @@
 
-import { MenuIcon, ShoppingBagIcon } from '@heroicons/react/solid';
+import { MenuIcon, ShoppingBagIcon, UserIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { selectBasketItems } from '../features/app/slices/basketSlice';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth, provider } from '../firebase';
 
 const Header = () => {
     const router = useRouter();
@@ -15,6 +17,8 @@ const Header = () => {
     const goToCart = () => {
         router.push('/cart');
     };
+    
+    const [user, loading, error] = useAuthState(auth);
 
     const basketItems = useSelector(selectBasketItems);
 
@@ -27,7 +31,7 @@ const Header = () => {
             </div>
 
             {/*right side*/}
-            <div className="flex flex-[0.8] items-center justify-end p-3">
+            <div className="flex flex-[0.8] items-center justify-end p-3 space-x-3">
                 <div onClick={goToCart} className="relative flex justify-center rounded-full p-3 bg-[purple]">
                     <ShoppingBagIcon className="text-white w-5 h-5"/>
                     <div className="absolute flex justify-center right-1 top-0">
@@ -37,9 +41,20 @@ const Header = () => {
                         
                     </div>
                 </div>
+                <div className="flex items-center">
+                    {
+                        !user &&
+                        <div className="rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1">
+                            <UserIcon className="text-white w-5 h-5"/>
+                            <span className="text-white text-sm">Account</span>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
      );
 }
+
+
  
 export default Header;
