@@ -6,9 +6,14 @@ import { useSelector } from 'react-redux';
 import { selectBasketItems } from '../features/app/slices/basketSlice';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, provider } from '../firebase';
+import { useDispatch } from 'react-redux';
+import { setCurrentUser } from '../features/app/slices/userSlice';
+import {useEffect } from 'react';
 
 const Header = () => {
+
     const router = useRouter();
+    const dispatch = useDispatch();
 
     const goToHome = () => {
         router.push('/');
@@ -24,11 +29,24 @@ const Header = () => {
     
     const [user, loading, error] = useAuthState(auth);
 
+    
     const basketItems = useSelector(selectBasketItems);
 
     const signIn = ()=>{
-        auth.signInWithPopup(provider);
+        auth.signInWithPopup(provider).catch(error => {
+            alert(error.message);
+        });
+
+
     }
+
+    useEffect(() => {
+        if (user) {
+            dispatch(setCurrentUser(user));
+        }
+    } , [user]);
+
+
     console.log(user);
     return ( 
         <div className="flex py-5 items-center bg-[white] fixed top-0 w-screen z-30 shadow-sm">
@@ -58,11 +76,17 @@ const Header = () => {
                     }
                     {
                         user &&
-                        <div onClick={goToUser} className=" relative w-11 h-11 rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1 overflow-hidden">
-                            <Image src={user.photoURL} className="" layout="fill" />
+                        <div onClick={goToUser} className="relative w-11 h-11 rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1 overflow-hidden">
+                            {   user.photoURL &&
+                                <Image src={user.photoURL} className="" layout="fill" />
+                            }
+                            {
+                                !user.photoURL &&
+                                <span className="text-white text-4xl font-bold">{user.email.slice(0,1)}</span>
+                            }
                         </div>
                     }
-                <div className="flex items-center p">
+                <div className="flex items-center p-3">
                     
                 </div>
             </div>
