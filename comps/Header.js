@@ -17,11 +17,19 @@ const Header = () => {
     const goToCart = () => {
         router.push('/cart');
     };
+
+    const goToUser = () => {
+        router.push('/user');
+    };
     
     const [user, loading, error] = useAuthState(auth);
 
     const basketItems = useSelector(selectBasketItems);
 
+    const signIn = ()=>{
+        auth.signInWithPopup(provider);
+    }
+    console.log(user);
     return ( 
         <div className="flex py-5 items-center bg-[white] fixed top-0 w-screen z-30 shadow-sm">
             {/*left side*/}
@@ -41,14 +49,21 @@ const Header = () => {
                         
                     </div>
                 </div>
-                <div className="flex items-center">
                     {
                         !user &&
-                        <div className="rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1">
+                        <div onClick={signIn} className="rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1">
                             <UserIcon className="text-white w-5 h-5"/>
-                            <span className="text-white text-sm">Account</span>
+                            <span className="hidden md:inline-flex text-white ">Account</span>
                         </div>
                     }
+                    {
+                        user &&
+                        <div onClick={goToUser} className=" relative w-11 h-11 rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1 overflow-hidden">
+                            <Image src={user.photoURL} className="" layout="fill" />
+                        </div>
+                    }
+                <div className="flex items-center p">
+                    
                 </div>
             </div>
         </div>
