@@ -31,7 +31,7 @@ const Meal = ({meal}) => {
                         <span>R{meal.price}</span>
                     </div>
                     <div className="flex flex-col justify-center items-center p-5">
-                        <div className="flex items-center justify-center bg-[purple] rounded-full text-white px-2">
+                        <div className="flex items-center justify-center bg-[purple] rounded-full text-white px-2 flex-nowrap">
                             <span>{meal.category}</span>
                         </div>
                         <div>
@@ -41,14 +41,14 @@ const Meal = ({meal}) => {
                 </div>
                 <div></div>
             </div>
-            <div className="space-x-3 flex">
+            <div className="space-x-3 flex overflow-x-scroll">
                 {
                     meal.includes && 
                     meal.includes.map((item, index) => {
                     return <span key={index} className="bg-gray-100 text-purple-800 rounded-full px-2 " >{item}</span>
                         }
                     )
-                }
+                } 
             </div>
             <div onClick={ addItemToCart } className="bg-[green] p-5 text-white flex justify-between mt-2 active:scale-90 ease-out transition" >
                 <span>Add to cart</span>

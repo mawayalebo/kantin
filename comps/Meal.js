@@ -22,9 +22,9 @@ const Meal = ({meal}) => {
                         <div>
                             <span className="font-bold text-3xl text-[orangered]">R{meal.price}</span>
                         </div>
-                        <div className="flex flex-col justify-center items-center">
+                        <div className="flex flex-col justify-center items-center ">
                             <span className="text-[purple]">{meal.cookTime} Min</span>
-                            <span className="px-2 bg-[purple] text-white rounded-full">{meal.category}</span>
+                            <span className="px-2 bg-[purple] text-white rounded-full flex-nowrap">{meal.category}</span>
                         </div>
                         
                     </div>
