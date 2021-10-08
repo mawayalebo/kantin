@@ -17,8 +17,8 @@ const Meal = ({meal}) => {
 
 
     return ( 
-        <div className="p-10 grid grid-cols-1 md:grid-cols-6">
-            <div className="flex-0.5  w-full h-[50vh] relative overflow-hidden">
+        <div className="p-10 grid grid-cols-1 md:grid-cols-2">
+            <div className="w-[45vh] h-[45vh] relative overflow-hidden flex justify-center">
                 <Image className="rounded-[20px]" src={meal.image} layout={"fill"} />
             </div>
             <div>
@@ -39,21 +39,25 @@ const Meal = ({meal}) => {
                         </div>
                     </div>
                 </div>
-                <div></div>
-            </div>
-            <div className="space-x-3 flex overflow-x-scroll">
-                {
-                    meal.includes && 
-                    meal.includes.map((item, index) => {
-                    return <span key={index} className="bg-gray-100 text-purple-800 rounded-full px-2 " >{item}</span>
-                        }
-                    )
-                } 
-            </div>
-            <div onClick={ addItemToCart } className="bg-[green] p-5 text-white flex justify-between mt-2 active:scale-90 ease-out transition" >
-                <span>Add to cart</span>
-                <ShoppingBagIcon className="text-white h-5 w-5" />
-            </div>
+                <div className="mb-5">
+                    <span className="p-2 font-bold text-gray-600 border-solid border-black border-b-2">Includes</span>
+                </div>
+                <div className="space-x-3 flex overflow-x-scroll mb-4">
+                    
+                    
+                        {
+                            meal.includes && 
+                            meal.includes.map((item, index) => {
+                            return <span key={index} className="bg-gray-100 text-purple-800 rounded-full px-2 " >{item}</span>
+                                }
+                            )
+                        } 
+                </div>
+                <div onClick={ addItemToCart } className="bg-[green] p-5 text-white flex justify-between mt-2 active:scale-90 ease-out transition" >
+                    <span>Add to cart</span>
+                    <ShoppingBagIcon className="text-white h-5 w-5" />
+                </div> 
+            </div> 
         </div>
      );
 }

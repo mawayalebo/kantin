@@ -57,7 +57,7 @@ const Header = () => {
             </div>
 
             {/*right side*/}
-            <div className="flex flex-[0.8] items-center justify-end p-3 space-x-3">
+            <div className="flex flex-[0.8] items-center justify-end p-1 space-x-3">
                 <div onClick={goToCart} className="relative flex justify-center rounded-full p-3 bg-[purple]">
                     <ShoppingBagIcon className="text-white w-5 h-5"/>
                     <div className="absolute flex justify-center right-1 top-0">
@@ -73,7 +73,7 @@ const Header = () => {
                             <UserIcon className="text-white w-5 h-5"/>
                             <span className="hidden md:inline-flex text-white ">Account</span>
                         </div>
-                    }
+                    } 
                     {
                         user &&
                         <div onClick={goToUser} className="relative w-11 h-11 rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1 overflow-hidden">
@@ -86,9 +86,7 @@ const Header = () => {
                             }
                         </div>
                     }
-                <div className="flex items-center p-3">
-                    
-                </div>
+                
             </div>
         </div>
      );

@@ -24,7 +24,10 @@ const Meal = ({meal}) => {
                         </div>
                         <div className="flex flex-col justify-center items-center ">
                             <span className="text-[purple]">{meal.cookTime} Min</span>
-                            <span className="px-2 bg-[purple] text-white rounded-full flex-nowrap">{meal.category}</span>
+                            <div className="px-2 bg-[purple] rounded-full flex justify-center">
+                                <span className="text-white whitespace-nowrap">{meal.category}</span>
+                            </div>
+                            
                         </div>
                         
                     </div>

@@ -26,7 +26,7 @@ const Cart = () => {
                 basketItems.length > 0 && 
                 <div className="p-2">
                     <h1 className="text-3xl text-[orangered] font-bold">Cart Meals</h1>
-                    <div className="flex flex-col">
+                    <div className="grid grid-cols-1 sm:grid-cols-2">
                         {console.log(basketItems)}
                         {
                             basketItems.map(item =>(
