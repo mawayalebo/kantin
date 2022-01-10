@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Banner from '../comps/Banner'
 import Meal from '../comps/Meal'
 import Meals from '../comps/Meals'
 
@@ -11,6 +12,7 @@ export default function Home() {
       </Head>
 
       <main className="">
+        <Banner/>
         <Meals />
       </main>
     </div>

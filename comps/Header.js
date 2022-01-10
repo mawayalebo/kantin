@@ -57,7 +57,7 @@ const Header = () => {
             </div>
 
             {/*right side*/}
-            <div className="flex flex-[0.8] items-center justify-end p-1 space-x-3">
+            <div className="flex flex-[0.8] items-center justify-end pr-10 space-x-3">
                 <div onClick={goToCart} className="relative flex justify-center rounded-full p-3 bg-[purple]">
                     <ShoppingBagIcon className="text-white w-5 h-5"/>
                     <div className="absolute flex justify-center right-1 top-0">
