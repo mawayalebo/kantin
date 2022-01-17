@@ -17,48 +17,52 @@ const Meal = ({meal}) => {
 
 
     return ( 
-        <div className="p-10 grid grid-cols-1 md:grid-cols-2">
-            <div className="w-[45vh] h-[45vh] relative overflow-hidden flex justify-center">
-                <Image className="rounded-[20px]" src={meal.image} layout={"fill"} />
+        <div className="flex items-center">
+            <div className="flex-1 max-w-4xl mx-auto p-10">
+                <div className="grid grid-cols-1 grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 gap-x-10 gap-y-5">
+                        <div className="relative col-span-2 sm:col-span-1">
+                            <Image className="rounded-[20px]" src={meal.image} layout={"fill"} /> 
+                        </div>
+                        <div className="col-span-2 sm:col-span-1">
+                            <div className="flex text-4xl font-bold">
+                                <span>{meal.name}</span>
+                            </div>
+                            
+                            <div className="flex items-center">
+                                <div className="text-[70px] font-bold text-[orangered] ">
+                                    <span>R{meal.price}</span>
+                                </div>
+                                <div className="flex flex-col justify-center items-center p-5">
+                                    <div className="flex items-center justify-center bg-[purple] rounded-full text-white px-2 flex-nowrap">
+                                        <span>{meal.category}</span>
+                                    </div>
+                                    <div>
+                                        <span className="font-bold">{meal.cookTime} Min</span> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mb-5">
+                                <span className="p-2 font-bold text-gray-600 border-solid border-black border-b-2">Includes</span>
+                            </div>
+                            <div className="space-x-3 flex overflow-x-scroll scrollbar-hide  mb-4">
+                                    {
+                                        meal.includes && 
+                                        meal.includes.map((item, index) => {
+                                        return <span key={index} className="bg-gray-100 text-purple-800 rounded-full px-2 " >{item}</span>
+                                            }
+                                        )
+                                    } 
+                            </div>
+                            <div onClick={ addItemToCart } className="bg-[green] p-5 text-white flex justify-between mt-2 active:scale-90 ease-out transition" >
+                                <span>Add to cart</span>
+                                <ShoppingBagIcon className="text-white h-5 w-5" />
+                            </div> 
+                    </div> 
+                </div>
             </div>
-            <div>
-                <div className="flex text-4xl font-bold">
-                    <span>{meal.name}</span>
-                </div>
-                
-                <div className="flex items-center">
-                    <div className="text-[70px] font-bold text-[orangered] ">
-                        <span>R{meal.price}</span>
-                    </div>
-                    <div className="flex flex-col justify-center items-center p-5">
-                        <div className="flex items-center justify-center bg-[purple] rounded-full text-white px-2 flex-nowrap">
-                            <span>{meal.category}</span>
-                        </div>
-                        <div>
-                            <span className="font-bold">{meal.cookTime} Min</span> 
-                        </div>
-                    </div>
-                </div>
-                <div className="mb-5">
-                    <span className="p-2 font-bold text-gray-600 border-solid border-black border-b-2">Includes</span>
-                </div>
-                <div className="space-x-3 flex overflow-x-scroll mb-4">
-                    
-                    
-                        {
-                            meal.includes && 
-                            meal.includes.map((item, index) => {
-                            return <span key={index} className="bg-gray-100 text-purple-800 rounded-full px-2 " >{item}</span>
-                                }
-                            )
-                        } 
-                </div>
-                <div onClick={ addItemToCart } className="bg-[green] p-5 text-white flex justify-between mt-2 active:scale-90 ease-out transition" >
-                    <span>Add to cart</span>
-                    <ShoppingBagIcon className="text-white h-5 w-5" />
-                </div> 
-            </div> 
         </div>
+        
+        
      );
 }
 
