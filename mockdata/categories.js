@@ -1,0 +1,22 @@
+export const categories = [
+    { id: 1, name: "burgers" },
+    { id: 2, name: "pizza" },
+    { id: 3, name: "tacos" },
+    { id: 4, name: "sushi" },
+    { id: 5, name: "pasta" },
+    { id: 6, name: "sandwiches" },
+    { id: 7, name: "seafood" },
+    { id: 8, name: "steak" },
+    { id: 9, name: "salads" },
+    { id: 10, name: "soup" },
+    { id: 11, name: "breakfast" },
+    { id: 12, name: "dessert" },
+    { id: 13, name: "vegetarian" },
+    { id: 14, name: "vegan" },
+    { id: 15, name: "gluten-free" },
+    { id: 16, name: "barbecue" },
+    { id: 17, name: "curry" },
+    { id: 18, name: "ramen" },
+    { id: 19, name: "dim sum" },
+    { id: 20, name: "tapas" }
+  ];

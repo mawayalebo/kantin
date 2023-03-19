@@ -4,16 +4,25 @@ import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
 const Banner = () => {
     return ( 
-        <div className="flex align-center justify-center lg:rounded-3xl h-[300px]  my-5 overflow-hidden lg:mx-10 sm:mt-0">
-            <Carousel interval={3} showIndicators={true} infiniteLoop={true} >
+        <div className="overflow-hidden max-w-xl ">
+            <Carousel interval={10000} showIndicators={true} infiniteLoop={true} autoPlay >
                 <div className="flex-1 w-96 h-[300px]">
-                    <Image src="/images/banner/image3.jpg" objectFit="inherit" layout="fill"/>
+                    <Image src="/images/banner/image4.webp" objectFit="cover" layout="fill"/>
                 </div>
                 <div className="flex-1 w-96 h-[300px]">
-                    <Image src="/images/banner/image2.jpg" objectFit="inherit" layout="fill"/>
+                    <Image src="/images/banner/image7.jpg" objectFit="cover" layout="fill"/>
                 </div>
                 <div className="flex-1 w-96 h-[300px]">
-                    <Image src="/images/banner/img1.jfif" objectFit="inherit" layout="fill"/>
+                    <Image src="/images/banner/image5.webp" objectFit="cover" layout="fill"/>
+                </div>
+                <div className="flex-1 w-96 h-[300px]">
+                    <Image src="/images/banner/image6.webp" objectFit="cover" layout="fill"/>
+                </div>
+                <div className="flex-1 w-96 h-[300px]">
+                    <Image src="/images/banner/image3.jpg" objectFit="cover" layout="fill"/>
+                </div>
+                <div className="flex-1 w-96 h-[300px]">
+                    <Image src="/images/banner/image1.jpg" objectFit="cover" layout="fill"/>
                 </div>
             </Carousel>
         </div>

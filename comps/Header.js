@@ -49,16 +49,17 @@ const Header = () => {
 
     console.log(user);
     return ( 
-        <div className="flex py-5 items-center bg-[white] fixed top-0 w-screen z-30 shadow-sm">
+        <div className="flex py-5 items-center bg-[#fffffff4] fixed top-0 w-screen z-30 shadow-sm">
             {/*left side*/}
-            <div className="flex flex-[0.2] items-center justify-start space-x-3 p-3 pr-6 rounded-r-full bg-[purple]">
-                <MenuIcon className="text-white w-5 h-5"/>
-                <span onClick={goToHome} className="text-white text-3xl mr-15">Kantin</span>  
+            <div className="flex flex-[0.2] items-center justify-start space-x-3 p-3 pr-6 rounded-r-full bg-[purple] bur">
+                <MenuIcon className="text-white w-5 h-5 cursor-pointer"/>
+                <span onClick={goToHome} className="text-white text-3xl mr-15 cursor-pointer">Kantin</span>  
+                <Image src={"/favicon.png"} width={60} height={55}/>
             </div>
 
             {/*right side*/}
-            <div className="flex flex-[0.8] items-center justify-end pr-10 space-x-3">
-                <div onClick={goToCart} className="relative flex justify-center rounded-full p-3 bg-[purple]">
+            <div className="flex flex-[0.8] items-center justify-end pr-10 space-x-3 ">
+                <div onClick={goToCart} className="relative flex justify-center rounded-full p-3 bg-[purple] cursor-pointer">
                     <ShoppingBagIcon className="text-white w-5 h-5"/>
                     <div className="absolute flex justify-center right-1 top-0">
                         {
@@ -69,14 +70,14 @@ const Header = () => {
                 </div>
                     {
                         !user &&
-                        <div onClick={signIn} className="rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1">
+                        <div onClick={signIn} className="rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1 cursor-pointer">
                             <UserIcon className="text-white w-5 h-5"/>
                             <span className="hidden md:inline-flex text-white ">Account</span>
                         </div>
                     } 
                     {
                         user &&
-                        <div onClick={goToUser} className="relative w-11 h-11 rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1 overflow-hidden">
+                        <div onClick={goToUser} className="relative w-11 h-11 rounded-full items-center bg-[purple] p-3 flex justify-center space-x-1 overflow-hidden cursor-pointer">
                             {   user.photoURL &&
                                 <Image src={user.photoURL} className="" layout="fill" />
                             }

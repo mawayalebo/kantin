@@ -9,9 +9,9 @@ const Meal = ({meal}) => {
         router.push(`/meal/${meal.id}`);
     }
     return ( 
-        <div onClick = { clickMeal } className="p-3">
+        <div onClick = { clickMeal } className="p-3 cursor-pointer transition delay-300 ease-linear hover:shadow-md hover:-mt-2 hover:scale-95  transform hover:rounded-md">
             <div className="flex">
-                <div className="relative flex">
+                <div className="relative">
                     <Image src={meal.image} width="150" height="150" className="rounded"/>
                 </div>
                 <div className="relative flex flex-col flex-grow p-2">
